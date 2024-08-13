@@ -62,15 +62,59 @@ h6 {
   isolation: isolate;
 }
 /*style */
+.top-bar {
+  background-color: red;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  position: fixed;
+  border-bottom: 3px solid rgb(167, 215, 188);
+  z-index: 100;
+  display: flex;
+  align-items: center; /* Posisikan teks secara vertikal di tengah */
+  overflow: hidden; /* Sembunyikan teks yang melampaui area top-bar */
+  padding: 0 10px; /* Tambahkan padding jika diperlukan */
+  color: white;
+  box-sizing: border-box; /* Pastikan padding tidak memengaruhi lebar total */
+}
+.scrolling {
+  display: inline-block; /* Agar animasi berjalan dengan benar */
+  white-space: nowrap; /* Hindari teks untuk membungkus baris berikutnya */
+  animation: scroll-left 20s linear infinite; /* Pengaturan animasi */
+  /* Memastikan teks dimulai dari luar layar */
+  position: relative; /* Untuk animasi yang relatif terhadap elemen .top-bar */
+}
 
+/* Definisi animasi */
+@keyframes scroll-left {
+  0% {
+    transform: translateX(400%); /* Mulai dari luar layar kanan */
+  }
+  100% {
+    transform: translateX(-100%); /* Bergerak ke kiri sampai keluar dari layar */
+  }
+}
 .container {
   width: 960px;
-  margin: auto;
+  margin: 80px auto;
   background-color: white;
   font-family: Georgia, "Times New Roman", Times, serif;
   border: 2px;
   border-style: solid;
   border-color: gray;
+  position: relative;
+}
+.facebook {
+  width: 100px;
+  height: 100px;
+  background-image: url(fb400.png);
+  display: inline-block;
+  top: -10px;
+  right: -5px;
+  background-size: cover;
+  position: absolute;
+  text-indent: -9999px;
 }
 body {
   font: 16px/28px arial, sans-serif;
